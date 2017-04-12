@@ -1,0 +1,60 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+#import "NavigationView.h"
+#import "XLCustomTableViewCell.h"
+#import "XLQuestWork.h"
+#import "PromptBoxView.h"
+#import "IphonePromptObject.h"
+#import "Reachability.h"
+#import "XLLoginInterfaceView.h"
+#import "RegisteredViewController.h"
+#import "XLUserLonginViewController.h"
+
+
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#define IOSVERSION ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f)
+#define IOSVERSIONSIZE  IOSVERSION == YES ? 20 : 0
+#define IOSNAVIGATIONSIZE  IOSVERSION == YES ? 64 : 44
+
+#define RGBACOLOR(r,g,b,a)  [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:a]
+#define WORDLCOLOR RGBACOLOR(124, 178, 15, 1)
+
+#define Screen_Height     600
+#define Screen_Width      320
+
+#define NAVIGATIONHIETH navigationView.frame.origin.y+navigationView.frame.size.height
+#define Screen_HeightSIZE  Screen_Height >= 667 ? 3 : 2
+
+#define VIEW_HEIGTH Screen_Height == 480 ? 60 : 0
+#ifdef DEBUG
+#define DBG(format, ...) NSLog(format, ## __VA_ARGS__)
+#else
+#define DBG(format, ...)
+#endif
+
+#define   WindowAddObserver  [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(windowRedView) name:@"HIDDERREDVIEW" object:nil]
+#define    WindowPostNotificationName   [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDDERREDVIEW" object:self userInfo:nil]
+#define   WindowAddObserverHidde  [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(windowRedViewHidde) name:@"HIDDERREDVIEWHIDDE" object:nil]
+#define    WindowPostNotificationNameHidde  [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDDERREDVIEWHIDDE" object:self userInfo:nil]
+
+#define   LoginAddObserverHidde [[NSNotificationCenter defaultCenter] postNotificationName:@"LOGINYES" object:self userInfo:nil]
+#define   LoginPostNotificationName [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(XLUserLonginViewHidde) name:@"LOGINYES" object:nil]
+
+#define  IPHNOEUNMBER  [[NSUserDefaults standardUserDefaults] objectForKey:@"IPHONE"]
+#define  IPHNOEPASSWORLD  [[NSUserDefaults standardUserDefaults] objectForKey:@"PASSWORD"]
+
+#define XLNETWORKREQUESTSURL  @"http://api.xsw100.com/"
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
